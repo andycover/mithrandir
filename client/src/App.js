@@ -22,7 +22,7 @@ function App() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     // Replace this with your actual API call
-    const mockResponse = `AI response to: ${inputText}`;
+    const mockResponse = `${inputText}`;
     const newRequestResponse = { request: inputText, response: mockResponse };
 
     setRequestResponses([...requestResponses, newRequestResponse]);
@@ -45,9 +45,9 @@ function App() {
       <div className="previous-responses">
         {requestResponses.map((item, index) => (
           <div key={index} className="previous-response">
-            <strong>Your Question:</strong> {item.request}
+            <strong>You:</strong> {item.request}
             <br />
-            <strong>AI Response:</strong> {item.response}
+            <strong>Mithrandir: </strong> {item.response}
           </div>
         ))}
       </div>
