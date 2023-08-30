@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
+import { callApi } from './api/restapi';
+
+//const url = "http://localhost:5000";
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -12,21 +15,35 @@ function App() {
   };
 
   const handleSubmit = async () => {
+    console.log('Entering submit handler ...')
     if (inputText.trim() === '') {
       return;
     }
 
     setIsLoading(true);
+    console.log("Loading ...")
 
-    // Simulate API call delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const request = { "prompt_string": inputText };
 
-    // Replace this with your actual API call
-    const mockResponse = `${inputText}`;
-    const newRequestResponse = { request: inputText, response: mockResponse };
+    try {
+      console.log("Attempting connection")
+      const responseString = await callApi("http://localhost:5000", request);
 
-    setRequestResponses([...requestResponses, newRequestResponse]);
-    setResponse(mockResponse);
+      // Simulate API call delay
+      //await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Replace this with your actual API call
+      //const responseString = `${inputText}`;
+      //const responseString = apiResponse.data;
+      const newRequestResponse = { request: inputText, response: responseString };
+
+      setRequestResponses([...requestResponses, newRequestResponse]);
+      //setResponse(mockResponse);
+      setResponse(responseString);
+
+    } catch (error) {
+      console.error('Error fetching reponse: ', error.message);
+    }
 
     setInputText('');
     setIsLoading(false);

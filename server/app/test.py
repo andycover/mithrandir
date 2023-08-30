@@ -9,7 +9,7 @@ Answer: Let's think step by step."""
 prompt = PromptTemplate(template=template, input_variables=["question"])
 
 local_path = (
-    "C:/Users/andyc/AppData/Local/nomic.ai/GPT4All/ggml-model-gpt4all-falcon-q4_0.bin"  # replace with your desired local file path
+    "C:/Users/user/AppData/Local/nomic.ai/GPT4All/ggml-model-gpt4all-falcon-q4_0.bin"  # replace with your desired local file path
 )
 
 # Callbacks support token-wise streaming
