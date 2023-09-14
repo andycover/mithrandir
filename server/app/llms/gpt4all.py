@@ -4,7 +4,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 def getModelResponse(question, local_path):
     template = """Question: {question}\n\nAnswer: Let's think step by step."""
-    template2 = """Question: {question}\n\nAnswer: Let's think step by step. If I understand correctly what you want is to """
+    template2 = """Question: {question}\n\nAnswer: """
     prompt = PromptTemplate(template=template2, input_variables=["question"])
 
     callbacks = [StreamingStdOutCallbackHandler()]
@@ -14,6 +14,7 @@ def getModelResponse(question, local_path):
     llm_chain = LLMChain(prompt=prompt, llm=llm)
 
     response = llm_chain.run(question)
+    #print("Raw Response: " + response)
     return response
 
 # Example usage

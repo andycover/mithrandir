@@ -62,7 +62,7 @@ function App() {
       <div className="previous-responses">
         {requestResponses.map((item, index) => (
           <div key={index} className="previous-response">
-            <strong>You:</strong> {item.request}
+            <strong>You:</strong> <p>{item.request}</p>
             <br />
             <strong>Mithrandir: </strong> {item.response}
           </div>

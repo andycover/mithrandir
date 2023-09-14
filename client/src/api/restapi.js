@@ -44,8 +44,8 @@ export const callApi = async (url, requestData = null) => {
       console.error('Error:', error);
     });
     */
-
-    return JSON.stringify(responseData);
+    //return JSON.stringify(responseData);
+    return responseData.response_string;
   } catch (error) {
     throw error;
   }

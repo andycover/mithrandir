@@ -9,14 +9,33 @@
   font-family: Arial, sans-serif;
 }
 
+.previous-responses {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.previous-response {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+}
+
+.previous-response strong {
+  font-weight: bold;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
 }
 
 textarea {
-  width: 300px;
+  width: 100%;
   padding: 10px;
   resize: vertical;
   border: 1px solid #ccc;
@@ -39,15 +58,3 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.response-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.response {
-  padding: 10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-width: 80%;
-}
